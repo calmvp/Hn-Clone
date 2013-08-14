@@ -7,7 +7,7 @@
 
 <ul>
 <% @posts.each do |post| %>
-<li><a href= "/posts/<%= post.id %>"><%= post.title %><ul><li><%= post.user.name %></a>  <%= post.comments.count %> comments</li></ul></li>
+<li><a href= "/posts/<%= post.id %>"><%= post.title %></a><ul><li><%= post.user.name %>  <%= post.comments.count %> comments</li></ul></li>
 <% end %>
 </ul>
 

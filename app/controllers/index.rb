@@ -21,6 +21,7 @@ post '/user/signin' do
   @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
+      redirect "/"
     else
       redirect "/"
     end
@@ -48,6 +49,7 @@ get '/posts/:post_id' do
 end
 
 post '/post/:post_id/comment/create' do
+  p params
   @post = Post.find(params[:post_id])
   @post.comments << Comment.create(body: params[:comment][:body], user_id: current_user.id)
   redirect '/'
