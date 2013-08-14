@@ -18,6 +18,21 @@
   <title></title>
 </head>
 <body>
+  <div class="authentication">
+    <ul>
+      <% unless current_user %>
+        <li><a href="/user/signup">Sign up</a></li>
+        <form action="/user/signin" method="post">
+          <li><input type="text" name="email" placeholder="Enter email"></li>
+          <li><input type="password" name="password" placeholder="Enter password"></li>
+          <li><input type="submit" value="Sign In">
+        </form>
+      <% else %>
+          <li><a href="/user/signout">Sign Out</a></li>
+          <li>Hello, <%= current_user.name %></li>
+      <% end %>
+    </ul>  
+  </div>
   <%= yield %>
 </body>
 </html>

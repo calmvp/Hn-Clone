@@ -1,0 +1,19 @@
+<h1> <%= @post.title %> </h1>
+
+<form action="/post/:post_id/comment/create" method="post">
+          
+          <textarea name="comment[body]" cols="50" rows="10">Write your comment...sometime</textarea>
+          <br><br>
+          <input type="submit" value="Create Comment">
+</form>
+
+
+<% if @comments %>
+  <ul>
+    <% @comments.each do |comment| %>
+    <li><%= comment.body %>  
+    <br>
+    
+    <% end %>
+  </ul>
+<% end %>
