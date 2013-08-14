@@ -61,6 +61,14 @@ post '/post/:post_id/comment/create' do
   redirect '/'
 end
 
+post '/votes/posts/:post_id' do
+  @post = Post.find(params[:post_id])
+  @post.votes << Vote.create(up: params[:vote_choice])
+  redirect "/posts/#{@post.id}"
+end
+
+
+
 get '/posts/:post_id/delete' do
   @post = Post.find(params[:post_id])
   @post.destroy
@@ -75,9 +83,11 @@ get '/comments/:comment_id/delete' do
   redirect 'user/profile'
 end
 
-
-
-
+post '/votes/comments/:comment_id' do
+  @comment = Comment.find(params[:comment_id])
+  @comment.votes << Vote.create(up: params[:vote_choice])
+  redirect "/posts/#{@comment.post.id}"
+end
 
 
 
