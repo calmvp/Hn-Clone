@@ -34,6 +34,13 @@
     <% @comments.each do |comment| %>
     <li><%= comment.body %>  
     <br>
+    <form action="/votes/comments/<%= comment.id %>" method="POST">
+      <select name="vote_choice">
+        <option value="true">UP</option>
+        <option value="false">DOWN</option>
+      </select>
+        <input type="submit" value="Vote">
+    </form>
 
     <% end %>
   </ul>
