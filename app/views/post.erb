@@ -1,0 +1,33 @@
+<ul><a href='/'>Home</a></ul>
+
+<h1> <%= @post.title %> </h1>
+
+<% if @post.url %>
+
+<p><a href='<%=@post.url%>'><%= @post.url %></a></p>
+
+<% else %>
+
+<p><%= @post.body %><p>
+
+<% end %>
+
+<a href='/'>Home</a>
+
+<form action="/post/<%= @post.id %>/comment/create" method="post">
+          
+          <textarea name="comment[body]" cols="40" rows="7">Write your comment...sometime</textarea>
+          <br><br>
+          <input type="submit" value="Create Comment">
+</form>
+
+
+<% if @comments %>
+  <ul>
+    <% @comments.each do |comment| %>
+    <li><%= comment.body %>  
+    <br>
+
+    <% end %>
+  </ul>
+<% end %>

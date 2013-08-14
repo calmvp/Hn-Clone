@@ -1,0 +1,21 @@
+<h1>Welcome, <%= current_user.name %></h1>
+
+<p><a href="/">Back to Home</a></p>
+
+<% if @posts %>
+<h2>Your Posts:</h2>
+<ul>
+  <% @posts.each do |post| %>
+  <li><a href='/posts/<%= post.id %>'><%= post.title %></a> <a href="/posts/<%= post.id %>/delete">Delete Post</a> </li>
+  <% end %>
+<% end %>
+</ul>
+
+<% if @comments %>
+<h2>Your Comments:</h2>
+<ul>
+  <% @comments.each do |comment| %>
+  <li><a href='/posts/<%= comment.post.id %>'><%= comment.body %></a> <a href="/comments/<%= comment.id %>/delete">Delete Comment</a></li>
+  <% end %>
+<% end %>
+</ul>
