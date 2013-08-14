@@ -44,7 +44,7 @@ get '/posts/create' do
 end
 
 post '/posts/create' do
-  @post = Post.create(title: params[:post][:title], body: params[:post][:body], user_id: current_user.id)
+  @post = Post.create(title: params[:post][:title], body: params[:post][:body], url: params[:post][:url], user_id: current_user.id)
   redirect '/'
 end
 
