@@ -21,7 +21,7 @@ post '/user/signin' do
   @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect "/"
+      redirect "/user/profile"
     else
       redirect "/"
     end
@@ -31,6 +31,12 @@ get '/user/signout' do
 
   session[:user_id] = nil
   redirect '/'
+end
+
+get '/user/profile' do
+  @posts = current_user.posts
+  @comments = current_user.comments
+  erb :profile
 end
 
 get '/posts/create' do
@@ -55,7 +61,19 @@ post '/post/:post_id/comment/create' do
   redirect '/'
 end
 
+get '/posts/:post_id/delete' do
+  @post = Post.find(params[:post_id])
+  @post.destroy
 
+  redirect 'user/profile'
+end
+
+get '/comments/:comment_id/delete' do
+  @comment = Comment.find(params[:comment_id])
+  @comment.destroy
+
+  redirect 'user/profile'
+end
 
 
 
