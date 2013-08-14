@@ -4,15 +4,22 @@
 
 <% if @post.url %>
 
-<p><a href='<%=@post.url%>'><%= @post.url %></a></p>
+  <p><a href='<%=@post.url%>'><%= @post.url %></a></p>
 
 <% else %>
 
-<p><%= @post.body %><p>
+  <p><%= @post.body %><p>
 
 <% end %>
 
-<a href='/'>Home</a>
+<form action="/votes/posts/<%= @post.id %>" method="POST">
+  <select name="vote_choice">
+    <option value="true">UP</option>
+    <option value="false">DOWN</option>
+  </select>
+  <input type="submit" value="Vote">
+</form>
+    
 
 <form action="/post/<%= @post.id %>/comment/create" method="post">
           
