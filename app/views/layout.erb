@@ -18,14 +18,15 @@
   <title></title>
 </head>
 <body>
-  <div class="authentication">
+  <div class="nav-bar">
     <ul>
       <% unless current_user %>
-        <li><a href="/user/signup">Sign up</a></li>
-        <form action="/user/signin" method="post">
+        
+        <form class="sign-up" action="/user/signin" method="post">
           <li><input type="text" name="email" placeholder="Enter email"></li>
           <li><input type="password" name="password" placeholder="Enter password"></li>
           <li><input type="submit" value="Sign In">
+          <li><a href="/user/signup">Sign up?</a></li>
         </form>
       <% else %>
           <li><a href="/user/signout">Sign Out</a></li>

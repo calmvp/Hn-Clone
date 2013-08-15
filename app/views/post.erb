@@ -1,17 +1,13 @@
+<div class="container">
 <ul><a href='/'>Home</a></ul>
 
 <h1> <%= @post.title %> </h1>
 
-<% if @post.url %>
+<div>
 
-  <p><a href='<%=@post.url%>'><%= @post.url %></a></p>
+  <%= @post.body %>
 
-<% else %>
-
-  <p><%= @post.body %><p>
-
-<% end %>
-
+</div>
 <form action="/votes/posts/<%= @post.id %>" method="POST">
   <select name="vote_choice">
     <option value="true">UP</option>
@@ -45,3 +41,4 @@
     <% end %>
   </ul>
 <% end %>
+</div>

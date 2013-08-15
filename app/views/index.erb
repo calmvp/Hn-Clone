@@ -1,5 +1,5 @@
 <div class="container">
-  <h1> Title Coming Soon</h1>
+  <h1> Slacker News</h1>
 
 <% if current_user %>
 <a href="/posts/create">New Post</a>
@@ -7,7 +7,7 @@
 
 <ul>
 <% @posts.each do |post| %>
-<li><a href= "/posts/<%= post.id %>"><%= post.title %></a><ul>
+<li><a href= "/posts/<%= post.id %>"><%= post.title %></a><br>Upvotes: <%= post.votes.where(up:true).count %></li><ul>
   <li><%= post.user.name %>  <%= post.comments.count %> <a href='/posts/<%= post.id %>'>comments</a></li></ul></li>
 <% end %>
 </ul>

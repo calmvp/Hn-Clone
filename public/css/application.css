@@ -2,9 +2,49 @@
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 1px solid black;
+  background-color:white;
+  opacity:0.4;
+  border-radius: 4px;
+  font-family: Oldtown, fantasy;
+  font-weight: bolder;
+}
+
+h1 {
+  text-align: center;
+  font-family: Parkavenue, cursive;
+  font-weight: bolder;
+  font-size: 200%;
+}
+
+html { 
+  background: url(getting_naked.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 th {
   text-align: left;
 }
 
+input{
+  border-radius: 3px;
+}
+
+.nav-bar li{
+  display: inline;
+}
+
+.nav-bar a{
+  float: right;
+  margin-right: 35px;
+  padding: 3px;
+  color:#EFA200;
+  text-decoration: none
+}
+
+.nav-bar{
+  background-color: #131A68;
+  padding: 15px;
+}

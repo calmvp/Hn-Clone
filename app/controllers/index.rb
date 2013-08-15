@@ -29,13 +29,20 @@ end
 
 get '/user/signout' do
 
-  session[:user_id] = nil
+  session.clear
   redirect '/'
 end
 
 get '/user/profile' do
+  @user = User.find(session[:user_id])
+  puts @user
+  puts "*********************************************"
   @posts = current_user.posts
+  puts @posts.empty?
+  puts @posts.nil?
   @comments = current_user.comments
+  puts @comments.empty?
+  puts @comments.nil?
   erb :profile
 end
 
